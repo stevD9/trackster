@@ -1,15 +1,24 @@
 /* Universal */
 
 html, body {
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Work Sans';
+}
+
+#overide p {
+  margin-bottom: 0;
 }
 
 /* Header */
 
 header {
   background-color: rgb(35,2,63);
-  padding: 2.3rem 0;
+  padding: 2.7rem 0;
+}
+
+header .row {
+  display: flex;
+  align-items: center;
 }
 
 header p {
@@ -22,21 +31,53 @@ header #search {
   color: rgb(35,2,63);
   background-color: rgb(255,0,171);
   text-align: center;
-  padding: .3rem 0;
-  border-radius: 20px;
-  margin-top: .4rem;
-  cursor: pointer;
-}
-
-header #input {
   padding: .5rem 0;
-  margin-top: .3rem;
-  border-radius: 19px;
-  padding-left: 1rem;
-  margin-right: 1rem;
-  color: rgb(191,191,191);
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 header #search:hover {
   background-color: rgb(255,102,204);
+}
+
+header #input {
+  padding: .7rem 0;
+  border-radius: 19px;
+  padding-left: 1rem;
+  margin-right: .7rem;
+  color: rgb(191,191,191);
+}
+
+header #input:focus {
+  color: rgb(74,74,74);
+}
+
+/* Info Header */
+
+#info-header {
+  background-color: rgb(104,0,255);
+  color: rgb(255,255,255);
+  padding: .5rem 0;
+}
+
+/* Track List */
+
+#tracks .track {
+  color: rgb(74,74,74);
+  border-bottom: 1px solid rgb(204,204,204);
+  display: flex;
+  align-items: center;
+  padding: .5rem 0;
+}
+
+#tracks .track:hover {
+  background-color: rgb(239,237,242);
+}
+
+#tracks .play-button a {
+  color: rgb(255,0,171);
+}
+
+#tracks .play-button a:hover {
+  color: rgb(255,102,204);
 }
