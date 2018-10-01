@@ -11,7 +11,21 @@ const API_KEY = '4704092f4b581c3c68a01526db6a7ba6';
   Append each "row" to the container in the body to display all tracks.
 */
 Trackster.renderTracks = function(tracks) {
-
+  $('#tracks').empty();
+  for (var i = 0; i < tracks.length; i++) {
+    var albumArt = tracks[i].image[1]['#text'];
+    var trackRow = '<div class="row track">' +
+          ' <div class="col-xs-1 col-xs-offset-1 play-button">' +
+          '  <a href='+tracks[i].url+' target="_blank">' +
+          '   <i class="fas fa-play-circle fa-2x"></i></a>' +
+          ' </div>' +
+          ' <div class="col-xs-4">'+tracks[i].name+'</div>' +
+          ' <div class="col-xs-2">'+tracks[i].artist+'</div>' +
+          ' <div class="col-xs-2"><img src='+albumArt+'></div>' +
+          ' <div class="col-xs-2">'+tracks[i].listeners+'</div>' +
+          '</div>';
+    $('#tracks').append(trackRow);
+  };
 };
 
 /*
@@ -20,10 +34,10 @@ Trackster.renderTracks = function(tracks) {
 */
 Trackster.searchTracksByTitle = function(title) {
   $.ajax({
-    url: 'http://ws.audioscrobbler.com/2.0/?method=track.search&track='+title+'&api_key='+API_KEY+'&format=json',
+    url: 'https://ws.audioscrobbler.com/2.0/?method=track.search&track='+title+'&api_key='+API_KEY+'&format=json',
     datatype: 'jsonp',
     success: function(data) {
-      console.log(data);
+      Trackster.renderTracks(data.results.trackmatches.track);
     }
-    });
+  });
 };
